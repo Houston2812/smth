@@ -32,5 +32,6 @@ jacocoTestReport {
 test {
     useJUnitPlatform()
 }
-
-test.finalizedBy jacocoTestReport
+plugins.withType(JacocoPlugin) {
+    tasks["test"].finalizedBy 'jacocoTestReport'
+}

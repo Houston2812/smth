@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id "org.sonarqube" version "3.3"
+    id 'jacoco'
 }
 
 group 'org.example'
@@ -22,6 +23,14 @@ sonarqube {
         property "sonar.host.url", "https://sonarcloud.io"
     }
 }
+jacocoTestReport {
+    reports {
+        xml.enabled true
+    }
+}
+
 test {
     useJUnitPlatform()
 }
+
+test.finalizedBy jacocoTestReport

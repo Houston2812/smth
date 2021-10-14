@@ -32,6 +32,8 @@ jacocoTestReport {
 test {
     useJUnitPlatform()
 }
-plugins.withType(JacocoPlugin) {
-    tasks["test"].finalizedBy 'jacocoTestReport'
+
+test.finalizedBy jacocoTestReport
+task.named('sonarqube').configure {
+    dependsOn test
 }

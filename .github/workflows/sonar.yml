@@ -20,6 +20,8 @@ jobs:
           java-version: 16
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
+      - name: current dir
+        run: pwd
       - name: Cache SonarCloud packages
         uses: actions/cache@v1
         with:
